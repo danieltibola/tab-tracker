@@ -20,4 +20,16 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.input-group--text-field input {
+  border-bottom: 1px solid #3a3a3a
+}
+
+.toolbar__title {
+  color: white
+}
+
+.btn__content {
+  color: white
+}
 </style>
