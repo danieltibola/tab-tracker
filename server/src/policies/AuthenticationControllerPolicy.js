@@ -5,7 +5,7 @@ module.exports = {
     const schema = {
       email: Joi.string().email(),
       password: Joi.string().regex(
-        new RegExp('^[a-zA-Z0-9]{8-32}$')
+        new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')
       )
     }
 
@@ -20,7 +20,11 @@ module.exports = {
           break
         case 'password':
           res.status(400).send({
-            error: 'Password must be lowercase, uppercase or numeric AND minimum 8 to 32 characters!'
+            error: 'Password must attend to the following rules: <br>' +
+              '1 - At least 1 character lowercase <br>' +
+              '2 - At least 1 character uppercase <br>' +
+              '3 - At least 1 number <br>' +
+              '4 - Minimum length of 8 characters'
           })
           break
         default:
